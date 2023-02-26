@@ -32,7 +32,7 @@ Auth::routes();
 // Home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('/user')->group(function () {
+Route::prefix('/user')->middleware('auth')->group(function () {
     //Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
