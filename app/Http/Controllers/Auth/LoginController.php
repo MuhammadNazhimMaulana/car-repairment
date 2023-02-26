@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -22,7 +23,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
 
     /**
      * Where to redirect users after login.
@@ -50,6 +53,9 @@ class LoginController extends Controller
                 $user->provider_id = $data->id;
                 $user->avatar = $data->avatar;
                 $user->save();
+
+                // Role
+                $user->assignRole('user');
             }
         Auth::login($user);
     }
@@ -80,5 +86,12 @@ class LoginController extends Controller
     
         $this->_registerorLoginUser($user);
         return redirect()->route('home');
+    }
+
+    // Custom Logout
+    public function logout(Request $request)
+    {
+        $this->performLogout($request);
+        return redirect()->route('login');
     }
 }
