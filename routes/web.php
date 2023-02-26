@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -30,6 +31,11 @@ Auth::routes();
 
 // Home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('/user')->group(function () {
+    //Profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+});
 
 Route::prefix('/login')->group(function () {
     //Google
