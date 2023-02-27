@@ -17,4 +17,9 @@ class ProfileController extends Controller
     {
         return $this->profileInterface->index();
     }
+    
+    public function update(Request $request)
+    {
+        return $this->profileInterface->update($request);
+    }
 }
