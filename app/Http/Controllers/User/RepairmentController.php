@@ -18,8 +18,18 @@ class RepairmentController extends Controller
         return $this->repairmentInterface->index();
     }
 
+    public function show(int $id)
+    {
+        return $this->repairmentInterface->show($id);
+    }
+
     public function store(Request $request)
     {
         return $this->repairmentInterface->store($request);
+    }
+
+    public function update(Request $request, int $id)
+    {
+        return $this->repairmentInterface->update($request, $id);
     }
 }

@@ -30,7 +30,7 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                        <a class="nav-link @if ($title == 'Home') active @endif" href="{{ route('home') }}">{{ __('Home') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @if ($title == 'Repairment') active @endif" href="{{ route('repairment') }}">{{ __('Repairment') }}</a>

@@ -40,6 +40,8 @@ Route::prefix('/user')->middleware('auth')->group(function () {
 
     //Repairment
     Route::get('/repairment', [RepairmentController::class, 'index'])->name('repairment');
+    Route::get('/repairment/{id}', [RepairmentController::class, 'show'])->name('repairment.show');
+    Route::put('/repairment/{id}', [RepairmentController::class, 'update']);
     Route::post('/repairment', [RepairmentController::class, 'store']);
 });
 
