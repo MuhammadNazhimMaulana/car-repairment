@@ -42,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the services for the blog post.
+     */
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }
