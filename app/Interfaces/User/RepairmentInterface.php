@@ -2,7 +2,7 @@
 
 namespace App\Interfaces\User;
 
-interface ServiceInterface
+interface RepairmentInterface
 {
 	public function index();
 }

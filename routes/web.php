@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExampleController;
-use App\Http\Controllers\User\{ProfileController, ServiceController};
+use App\Http\Controllers\User\{ProfileController, RepairmentController};
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -38,8 +38,8 @@ Route::prefix('/user')->middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile', [ProfileController::class, 'update']);
 
-    //Service
-    Route::get('/service', [ServiceController::class, 'index'])->name('service');
+    //Repairment
+    Route::get('/repairment', [RepairmentController::class, 'index'])->name('repairment');
 });
 
 Route::prefix('/login')->group(function () {

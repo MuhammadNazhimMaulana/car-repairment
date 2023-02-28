@@ -26,8 +26,8 @@ class RepositoryServiceProvider extends ServiceProvider
 
         // Service
         $this->app->bind(
-            'App\Interfaces\User\ServiceInterface',
-            'App\Repositories\User\ServiceRepository'
+            'App\Interfaces\User\RepairmentInterface',
+            'App\Repositories\User\RepairmentRepository'
         );
     }
 

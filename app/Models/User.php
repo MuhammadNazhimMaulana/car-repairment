@@ -44,10 +44,10 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the services for the blog post.
+     * Get the repairments for the blog post.
      */
-    public function services()
+    public function repairments()
     {
-        return $this->hasMany(Service::class);
+        return $this->hasMany(Repairment::class);
     }
 }
