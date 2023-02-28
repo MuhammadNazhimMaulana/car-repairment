@@ -40,6 +40,7 @@ Route::prefix('/user')->middleware('auth')->group(function () {
 
     //Repairment
     Route::get('/repairment', [RepairmentController::class, 'index'])->name('repairment');
+    Route::post('/repairment', [RepairmentController::class, 'store']);
 });
 
 Route::prefix('/login')->group(function () {

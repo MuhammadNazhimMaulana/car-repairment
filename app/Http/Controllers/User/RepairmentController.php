@@ -17,4 +17,9 @@ class RepairmentController extends Controller
     {
         return $this->repairmentInterface->index();
     }
+
+    public function store(Request $request)
+    {
+        return $this->repairmentInterface->store($request);
+    }
 }
