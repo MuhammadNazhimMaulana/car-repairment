@@ -18,7 +18,7 @@ class CreateServicesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('vehicle_name');
             $table->longText('issue');
-            $table->decimal('fee', 32, 2);
+            $table->decimal('fee', 32, 2)->nullable();
             $table->string('status');
             $table->timestamps();
 

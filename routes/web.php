@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExampleController;
-use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\{ProfileController, ServiceController};
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -37,6 +37,9 @@ Route::prefix('/user')->middleware('auth')->group(function () {
     //Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile', [ProfileController::class, 'update']);
+
+    //Service
+    Route::get('/service', [ServiceController::class, 'index'])->name('service');
 });
 
 Route::prefix('/login')->group(function () {

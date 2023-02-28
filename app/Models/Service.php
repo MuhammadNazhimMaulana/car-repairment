@@ -11,9 +11,11 @@ class Service extends Model
 
     // Fillable
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'user_id',
+        'vehicle_name',
+        'issue',
+        'fee',
+        'status'
     ];
 
     /**

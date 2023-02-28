@@ -33,7 +33,7 @@
                         <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">{{ __('Schedule') }}</a>
+                        <a class="nav-link @if ($title == 'Service') active @endif" href="{{ route('service') }}">{{ __('Schedule') }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
