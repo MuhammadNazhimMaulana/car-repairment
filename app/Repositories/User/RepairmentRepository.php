@@ -15,7 +15,7 @@ class RepairmentRepository implements RepairmentInterface
         $user =  Auth::user();
 
         // Repairment List
-        $repairments = Repairment::paginate(10);
+        $repairments = Repairment::where('user_id', $user->id)->paginate(10);
 
         // If Admin
         if($user->hasRole('admin'))

@@ -32,9 +32,29 @@
                     <li class="nav-item">
                         <a class="nav-link @if ($title == 'Home') active @endif" href="{{ route('home') }}">{{ __('Home') }}</a>
                     </li>
+
+                    @if($user->hasRole('user'))
                     <li class="nav-item">
                         <a class="nav-link @if ($title == 'Repairment') active @endif" href="{{ route('repairment') }}">{{ __('Repairment') }}</a>
                     </li>
+                    @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle @if ($title == 'Payment' || $title == 'Repairment') active @endif" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ __('Repairment') }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item @if ($title == 'Repairment') active @endif" href="{{ route('repairment') }}">
+                                {{ __('Approval') }}
+                            </a>
+    
+                            <a class="dropdown-item @if ($title == 'Payment') active @endif" href="{{ route('repairment') }}">
+                                {{ __('Payment') }}
+                            </a>
+    
+                        </div>
+                    </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
