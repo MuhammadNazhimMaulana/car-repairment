@@ -28,10 +28,12 @@
                     </div>
                     @endif
 
-                    {{-- Add --}}
-                    <div class="mb-3">
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#createServiceModal" class="btn btn-primary">Add New Vehicle</button>
-                    </div>
+                    @if($user->hasRole('user'))
+                        {{-- Add --}}
+                        <div class="mb-3">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#createServiceModal" class="btn btn-primary">Add New Vehicle</button>
+                        </div>
+                    @endif
 
                     @if(empty($repairments[0]))
                         <div class="text-center">No Service Data Yet</div>
