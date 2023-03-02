@@ -48,7 +48,7 @@
                                 {{ __('Approval') }}
                             </a>
     
-                            <a class="dropdown-item @if ($title == 'Payment') active @endif" href="{{ route('repairment') }}">
+                            <a class="dropdown-item @if ($title == 'Payment') active @endif" href="{{ route('payment') }}">
                                 {{ __('Payment') }}
                             </a>
     
