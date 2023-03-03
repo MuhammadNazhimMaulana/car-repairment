@@ -17,4 +17,9 @@ class PaymentController extends Controller
     {
         return $this->paymentInterface->index();
     }
+
+    public function store(int $id)
+    {
+        return $this->paymentInterface->store($id);
+    }
 }

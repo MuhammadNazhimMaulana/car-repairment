@@ -9,6 +9,8 @@ class Repairment extends Model
 {
     use HasFactory;
 
+    const PENDING_STATUS = 'waiting payment';
+
     // Fillable
     protected $fillable = [
         'user_id',
@@ -24,5 +26,13 @@ class Repairment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the transaction for the blog post.
+     */
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class);
     }
 }

@@ -14,8 +14,15 @@
                         <h1>Payment</h1>
                     </div>
 
+                    {{-- Create Payment Done --}}
+                    @if(session()->has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
                     @if(empty($payments[0]))
-                        <div class="text-center">No Service Data Yet</div>
+                        <div class="text-center">No Data Yet</div>
                     @else
                         {{-- Table --}}
                         <table class="table">
@@ -36,7 +43,11 @@
                                 <td>{{ $payment->issue }}</td>
                                 <td>{{ $payment->status }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary text-white btn-update">Generate Payment</button>
+                                    {{-- Generate Payment --}}
+                                    <form action="/admin/payment/{{ $payment->id }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary text-white btn-update">Generate Payment</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

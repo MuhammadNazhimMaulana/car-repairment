@@ -50,7 +50,8 @@ Route::prefix('/user')->middleware('auth')->group(function () {
 Route::prefix('/admin')->middleware('auth')->group(function () {
 
     //Payment
-    Route::get('/profile', [PaymentController::class, 'index'])->name('payment');
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+    Route::post('/payment/{id}', [PaymentController::class, 'store']);
 });
 
 Route::prefix('/login')->group(function () {
