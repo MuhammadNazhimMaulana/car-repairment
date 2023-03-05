@@ -47,7 +47,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item @if ($title == 'Repairment') active @endif" href="{{ route('repairment') }}">
+                            <a class="dropdown-item @if ($title == 'Repairment') active @endif" href="/admin/repairment_list">
                                 {{ __('Approval') }}
                             </a>
 
