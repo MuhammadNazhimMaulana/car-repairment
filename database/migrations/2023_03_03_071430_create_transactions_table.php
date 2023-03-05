@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('repairment_id');
             $table->string('midtrans_transaction_id')->nullable();
             $table->string('midtrans_order_id')->nullable();
-            $table->unsignedBigInteger('midtrans_va_number')->nullable();
+            $table->string('midtrans_va_number')->nullable();
             $table->decimal('total', 32, 2)->nullable();
             $table->timestamps();
 

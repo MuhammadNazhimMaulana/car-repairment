@@ -41,6 +41,12 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Interfaces\User\PaymentInterface',
             'App\Repositories\User\PaymentRepository'
         );
+
+        // Webhook
+        $this->app->bind(
+            'App\Interfaces\Webhook\WebhookInterface',
+            'App\Repositories\Webhook\WebhookRepository'
+        );
     }
 
     /**

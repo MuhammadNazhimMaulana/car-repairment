@@ -22,7 +22,7 @@
                     @endif
 
                     @if(empty($payments[0]))
-                        <div class="text-center">No Data Yet</div>
+                        <div class="text-center">No Pending Payment Yet</div>
                     @else
                         {{-- Table --}}
                         <table class="table">

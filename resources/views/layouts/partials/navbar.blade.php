@@ -42,13 +42,17 @@
                     </li>
                     @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle @if ($title == 'Payment' || $title == 'Repairment') active @endif" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle @if ($title == 'Payment' || $title == 'Repairment' || $title == 'List Repairment') active @endif" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ __('Repairment') }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item @if ($title == 'Repairment') active @endif" href="{{ route('repairment') }}">
                                 {{ __('Approval') }}
+                            </a>
+
+                            <a class="dropdown-item @if ($title == 'List Repairment') active @endif" href="{{ route('repairment.admin') }}">
+                                {{ __('List Repairment') }}
                             </a>
     
                             <a class="dropdown-item @if ($title == 'Payment') active @endif" href="{{ route('payment') }}">
