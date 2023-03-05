@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Interfaces\Admin\PaymentInterface;
+use App\Interfaces\Admin\AdminPaymentInterface;
 
-class PaymentController extends Controller
+class AdminPaymentController extends Controller
 {
-    public function __construct(PaymentInterface $paymentInterface)
+    public function __construct(AdminPaymentInterface $paymentInterface)
     {
         $this->paymentInterface = $paymentInterface;
     }
