@@ -19,7 +19,7 @@ class CreateRepairmentsTable extends Migration
             $table->string('vehicle_name');
             $table->longText('issue');
             $table->decimal('fee', 32, 2)->nullable();
-            $table->string('status')->default('waiting');
+            $table->string('status')->default('pending');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

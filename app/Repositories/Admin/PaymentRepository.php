@@ -20,7 +20,7 @@ class PaymentRepository implements PaymentInterface
             'title' => 'Payment'
         ];
 
-        return view('user.service.payment', $data);
+        return view('admin.payment', $data);
     }
 
     public function store(int $id)
@@ -29,11 +29,6 @@ class PaymentRepository implements PaymentInterface
         $repairment = Repairment::find($id);
         $repairment->status = Repairment::PENDING_STATUS;
         $repairment->save();
-
-        // Create Transaction
-        $transaction = new Transaction;
-        $transaction->repairment_id = $repairment->id;
-        $transaction->save();
 
         // Redirect
         return redirect('/admin/payment')->with('success', 'Payment Generated');

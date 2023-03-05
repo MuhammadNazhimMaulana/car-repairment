@@ -30,10 +30,16 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\User\RepairmentRepository'
         );
 
-        // Payment
+        // Payment Admin
         $this->app->bind(
             'App\Interfaces\Admin\PaymentInterface',
             'App\Repositories\Admin\PaymentRepository'
+        );
+
+        // Payment User
+        $this->app->bind(
+            'App\Interfaces\User\PaymentInterface',
+            'App\Repositories\User\PaymentRepository'
         );
     }
 
