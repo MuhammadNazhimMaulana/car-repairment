@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Webhook\WebhookController;
 use App\Http\Controllers\User\{ProfileController, RepairmentController, UserPaymentController};
-use App\Http\Controllers\Admin\{PaymentController};
+use App\Http\Controllers\Admin\{AdminPaymentController};
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Default Route
-Route::middleware('auth')->get('/', function () {
-    return view('welcome');
-});
+// Route::middleware('auth')->get('/', function () {
+//     return view('welcome');
+// });
 
 // Webhook
 Route::post('/webhook', [WebhookController::class, 'index']);
@@ -51,8 +51,8 @@ Route::prefix('/user')->middleware('auth')->group(function () {
 Route::prefix('/admin')->middleware('auth')->group(function () {
 
     //Payment
-    Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
-    Route::post('/payment/{id}', [PaymentController::class, 'store']);
+    Route::get('/payment', [AdminPaymentController::class, 'index'])->name('payment');
+    Route::post('/payment/{id}', [AdminPaymentController::class, 'store']);
 
     //Repairment
     Route::get('/repairment', [RepairmentController::class, 'admin'])->name('repairment.admin');

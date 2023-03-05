@@ -2,12 +2,12 @@
 
 namespace App\Repositories\Admin;
 
-use App\Interfaces\Admin\PaymentInterface;
+use App\Interfaces\Admin\AdminPaymentInterface;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Repairment;
 use App\Models\Transaction;
 
-class PaymentRepository implements PaymentInterface
+class AdminPaymentRepository implements AdminPaymentInterface
 {
     public function index()
     {

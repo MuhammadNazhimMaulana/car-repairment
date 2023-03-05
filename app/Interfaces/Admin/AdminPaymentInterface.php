@@ -2,7 +2,7 @@
 
 namespace App\Interfaces\Admin;
 
-interface PaymentInterface
+interface AdminPaymentInterface
 {
 	public function index();
 	public function store(int $id);
