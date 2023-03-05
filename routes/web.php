@@ -31,7 +31,7 @@ Auth::routes();
 // Home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('/user')->middleware('auth')->group(function () {
+Route::prefix('/user')->middleware(['auth', 'user'])->group(function () {
 
     //Profile
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
@@ -48,13 +48,14 @@ Route::prefix('/user')->middleware('auth')->group(function () {
 });
 
 // For Admin
-Route::prefix('/admin')->middleware('auth')->group(function () {
+Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     //Payment
     Route::get('/payment', [AdminPaymentController::class, 'index'])->name('payment');
     Route::post('/payment/{id}', [AdminPaymentController::class, 'store']);
 
     //Repairment
+    Route::get('/repairment_list', [RepairmentController::class, 'index']);
     Route::get('/repairment', [RepairmentController::class, 'admin'])->name('repairment.admin');
 });
 
