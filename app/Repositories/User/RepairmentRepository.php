@@ -32,6 +32,23 @@ class RepairmentRepository implements RepairmentInterface
         return view('user.service.index', $data);
     }
 
+    public function admin()
+    {
+        // User
+        $user =  Auth::user();
+
+        // Repairment List
+        $repairments = Repairment::paginate(10);
+
+        $data = [
+            'user' => $user,
+            'repairments' => $repairments,
+            'title' => 'List Repairment'
+        ];
+
+        return view('admin.service.index', $data);
+    }
+
     public function show(int $id)
     {
         // Find Data

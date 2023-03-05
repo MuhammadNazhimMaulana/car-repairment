@@ -18,6 +18,11 @@ class RepairmentController extends Controller
         return $this->repairmentInterface->index();
     }
 
+    public function admin()
+    {
+        return $this->repairmentInterface->admin();
+    }
+
     public function show(int $id)
     {
         return $this->repairmentInterface->show($id);

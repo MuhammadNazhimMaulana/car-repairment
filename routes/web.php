@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\Webhook\WebhookController;
 use App\Http\Controllers\User\{ProfileController, RepairmentController, UserPaymentController};
 use App\Http\Controllers\Admin\{PaymentController};
 use Illuminate\Support\Facades\Auth;
@@ -18,14 +18,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Default Route
-Route::get('/', function () {
+Route::middleware('auth')->get('/', function () {
     return view('welcome');
 });
 
-// Route Example
-Route::prefix('/example')->group(function () {
-    Route::get('/', [ExampleController::class, 'index']);
-});
+// Webhook
+Route::post('/webhook', [WebhookController::class, 'index']);
 
 // Auth
 Auth::routes();
@@ -55,6 +53,9 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     //Payment
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
     Route::post('/payment/{id}', [PaymentController::class, 'store']);
+
+    //Repairment
+    Route::get('/repairment', [RepairmentController::class, 'admin'])->name('repairment.admin');
 });
 
 Route::prefix('/login')->group(function () {

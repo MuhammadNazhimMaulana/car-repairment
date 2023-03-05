@@ -10,6 +10,7 @@ class Repairment extends Model
     use HasFactory;
 
     const PENDING_STATUS = 'waiting payment';
+    const DONE_STATUS = 'done';
 
     // Fillable
     protected $fillable = [
