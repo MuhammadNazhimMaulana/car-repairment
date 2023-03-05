@@ -37,6 +37,9 @@
                     <li class="nav-item">
                         <a class="nav-link @if ($title == 'Repairment') active @endif" href="{{ route('repairment') }}">{{ __('Repairment') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title == 'Payment') active @endif" href="{{ route('payment.user') }}">{{ __('Payment') }}</a>
+                    </li>
                     @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle @if ($title == 'Payment' || $title == 'Repairment') active @endif" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

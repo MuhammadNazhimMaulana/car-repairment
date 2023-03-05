@@ -30,9 +30,9 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Vehicle</th>
-                                <th scope="col">VA Number</th>
+                                <th scope="col">Issue</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Total</th>
+                                <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -40,9 +40,15 @@
                             <tr>
                                 <th scope="row">{{ $payment->id }}</th>
                                 <td>{{ $payment->vehicle_name }}</td>
-                                <td>{{ $payment->transaction->midtrans_va_number }}</td>
+                                <td>{{ $payment->issue }}</td>
                                 <td>{{ $payment->status }}</td>
-                                <td>{{ $payment->transaction->total }}</td>
+                                <td>
+                                    {{-- Generate Payment --}}
+                                    <form action="/admin/payment/{{ $payment->id }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary text-white btn-update">Generate Payment</button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                             </tbody>

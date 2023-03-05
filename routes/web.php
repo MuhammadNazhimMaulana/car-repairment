@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExampleController;
-use App\Http\Controllers\User\{ProfileController, RepairmentController};
+use App\Http\Controllers\User\{ProfileController, RepairmentController, UserPaymentController};
 use App\Http\Controllers\Admin\{PaymentController};
 use Illuminate\Support\Facades\Auth;
 
@@ -44,6 +44,9 @@ Route::prefix('/user')->middleware('auth')->group(function () {
     Route::get('/repairment/{id}', [RepairmentController::class, 'show'])->name('repairment.show');
     Route::put('/repairment/{id}', [RepairmentController::class, 'update']);
     Route::post('/repairment', [RepairmentController::class, 'store']);
+
+    //Payment
+    Route::get('/payment', [UserPaymentController::class, 'index'])->name('payment.user');
 });
 
 // For Admin
