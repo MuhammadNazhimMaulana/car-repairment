@@ -37,4 +37,9 @@ class RepairmentController extends Controller
     {
         return $this->repairmentInterface->update($request, $id);
     }
+
+    public function pdf()
+    {
+        return $this->repairmentInterface->pdf();
+    }
 }

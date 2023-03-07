@@ -32,6 +32,7 @@
                         {{-- Add --}}
                         <div class="mb-3">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#createServiceModal" class="btn btn-primary">Add New Vehicle</button>
+                            <a href="/user/pdf" target="_blank"><button type="button" class="btn btn-danger text-white">PDF</button></a>
                         </div>
                     @endif
 
