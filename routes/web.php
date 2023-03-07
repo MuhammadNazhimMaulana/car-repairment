@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Default Route
-// Route::middleware('auth')->get('/', function () {
-//     return view('welcome');
-// });
+Route::middleware('auth')->get('/', function () {
+    return view('welcome');
+});
 
 // Webhook
 Route::post('/webhook', [WebhookController::class, 'index']);
@@ -42,6 +42,9 @@ Route::prefix('/user')->middleware(['auth', 'user'])->group(function () {
     Route::get('/repairment/{id}', [RepairmentController::class, 'show'])->name('repairment.show');
     Route::put('/repairment/{id}', [RepairmentController::class, 'update']);
     Route::post('/repairment', [RepairmentController::class, 'store']);
+
+    // PDF
+    Route::get('/pdf', [RepairmentController::class, 'pdf']);
 
     //Payment
     Route::get('/payment', [UserPaymentController::class, 'index'])->name('payment.user');

@@ -5,10 +5,13 @@ namespace App\Repositories\User;
 use App\Interfaces\User\RepairmentInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use App\Models\Repairment;
 
 class RepairmentRepository implements RepairmentInterface
 {
+    const TITLE = "Repairment";
+
     public function index()
     {
         // User
@@ -84,4 +87,27 @@ class RepairmentRepository implements RepairmentInterface
             'success'=>'Data is successfully updated',
         ]);
     }
+
+    public function pdf()
+    {
+        // User
+        $user =  Auth::user();
+
+        // Repairment List
+        $repairments = Repairment::where('user_id', $user->id)->paginate(10);
+
+        // Calling DOMPDF
+        $pdf = App::make('dompdf.wrapper');
+
+        // Loading view using DOMPSDF
+        $pdf->loadview('user.service.pdf', [
+            'user' => $user, 
+            'repairments' => $repairments, 
+            'title' => self::TITLE, 
+            ])->setpaper('legal', 'portrait');
+        
+        // Showing The pdf
+        return $pdf->stream('List Repairment.pdf');
+    }
+
 }
