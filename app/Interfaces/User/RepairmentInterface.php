@@ -12,4 +12,5 @@ interface RepairmentInterface
 	public function store(Request $request);
 	public function update(Request $request, int $id);
 	public function pdf();
+	public function excel();
 }
