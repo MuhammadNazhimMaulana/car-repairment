@@ -42,4 +42,9 @@ class RepairmentController extends Controller
     {
         return $this->repairmentInterface->pdf();
     }
+
+    public function excel()
+    {
+        return $this->repairmentInterface->excel();
+    }
 }

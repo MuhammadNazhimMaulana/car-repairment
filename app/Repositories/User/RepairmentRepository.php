@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Models\Repairment;
+use App\Exports\RepairmentsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RepairmentRepository implements RepairmentInterface
 {
@@ -108,6 +110,11 @@ class RepairmentRepository implements RepairmentInterface
         
         // Showing The pdf
         return $pdf->stream('List Repairment.pdf');
+    }
+
+    public function excel()
+    {
+        return Excel::download(new RepairmentsExport, 'repairments.xlsx');
     }
 
 }

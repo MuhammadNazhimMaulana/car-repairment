@@ -46,6 +46,9 @@ Route::prefix('/user')->middleware(['auth', 'user'])->group(function () {
     // PDF
     Route::get('/pdf', [RepairmentController::class, 'pdf']);
 
+    // Excel
+    Route::get('/excel', [RepairmentController::class, 'excel']);
+
     //Payment
     Route::get('/payment', [UserPaymentController::class, 'index'])->name('payment.user');
 });
