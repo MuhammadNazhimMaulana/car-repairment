@@ -15,7 +15,7 @@
                     @endif
                     
                     <div class="text-center">
-                        <h1>Welcome</h1>
+                        <h1>Hi and Welcome</h1>
                         <p>{{ Auth::user()->name }}</p>
                     </div>
                     
