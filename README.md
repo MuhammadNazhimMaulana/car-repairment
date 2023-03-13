@@ -1,6 +1,6 @@
 # Car Repairment
 
-Simple App that could be used for managing car repairment shop. Implementing the use of Laravel Socialite for login so login with google or github is possible.
+A simple App that could be used for managing car repairment shop. Implementing the use of Laravel Socialite for login so login with google or github is possible.
 
 ```
 composer install
