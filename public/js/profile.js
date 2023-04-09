@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    // Form List Update
+    let name = '#name_form';
+    let email = '#email_form';
+
     // Form Update
     let form = '#form-update';
 
@@ -7,7 +11,15 @@ $(document).ready(function(){
 
     $(form).on('change', function(event){
 
-        // Remove class
-        $(button).removeClass('d-none');
+        // Making Sure There is a change
+        if($(name).attr('data-initial') != $(name).val() || $(email).attr('data-initial') != $(email).val())
+        {
+            // Remove class
+            $(button).removeClass('d-none');
+        }else{
+            // Add class
+            $(button).addClass('d-none');
+        }
+
     });
 });
