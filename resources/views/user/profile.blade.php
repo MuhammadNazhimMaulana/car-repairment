@@ -31,11 +31,11 @@
                         {{-- If There is an update Needed --}}
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Anton" name="name" value="{{ $user->name }}">
+                            <input type="text" data-initial="{{ $user->name }}" class="form-control" id="name_form" placeholder="Anton" name="name" value="{{ $user->name }}">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" placeholder="name@example.com">
+                            <input type="email" data-initial="{{ $user->email }}" class="form-control" id="email_form" name="email" value="{{ $user->email }}" placeholder="name@example.com">
                         </div>
 
                         <button id="button-update" class="btn btn-primary d-none" type="submit">Update</button>
