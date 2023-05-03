@@ -67,14 +67,20 @@ class RepairmentRepository implements RepairmentInterface
 
     public function store(Request $request)
     {
-        // Save New Data
-        $repairment = new Repairment;
-        $repairment->user_id = $request->user_id;
-        $repairment->vehicle_name = $request->vehicle_name;
-        $repairment->issue = $request->issue;
-        $repairment->save();
+        // Getting User Data
+        $user =  Auth::user();
 
-        return redirect('/user/repairment')->with('success', 'New Repairment Added');
+        if ($user->can('create', Repairment::class)) {
+            // Save New Data
+            $repairment = new Repairment;
+            $repairment->user_id = $request->user_id;
+            $repairment->vehicle_name = $request->vehicle_name;
+            $repairment->issue = $request->issue;
+            $repairment->save();
+    
+            return redirect('/user/repairment')->with('success', 'New Repairment Added');
+        }
+
     }
 
     public function update(Request $request, int $id)
